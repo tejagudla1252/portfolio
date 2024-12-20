@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Portfolio website</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <div id="header">
+        <div class="container">
+            <nav>
+                <!-- Name at the top left -->
+                <div class="name">
+                    <img src="logo.jpg" class="logo"> 
+                </div>
+                <!-- Fixed side menu -->
+                <ul id="sidemenu">
+                    <li><a href="#header">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#portfolio">Portfolio</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+            <!-- Header text -->
+            <div class="header-text">
+                <h2>Data Engineer</h2>
+                <h1>Hi, I'm <span>Tejamanikanta Gudla</span></h1>
+                
+            </div>
+        </div>
+    </div>
+    
+<!-------------about me -------------------->
+     <div id="about">
+        <div class="container">
+            <div class="row">
+                <div class="about-col-1">
+                    <img src="OPT_PHOTO.jpg">
+                </div>
+                <div class="about-col-2">
+                    <h1 class="sub-title">About Me</h1>
+                    <p> Data Science masters Graduate in UNT. My motivation results in oriented and energized leader in Fortune 500’s, like Infosys, multi-tasking as a Data Engineer or Data/Business Analyst with over 4 years of experience. Delivered outcomes through the data processing efficiency
+                        improvements as well as progressing effort utilization through the creation of client specific data
+                        pipelines and dashboards highlighting business data trends. Leveraged critical techniques including
+                        advanced and statistical analysis, machine learning, data modeling, ETL, SQL, python, GCP, Hadoop and Spark.
+                        Forged strong trusted networks that enabled key collaborations in fast-paced environments. Created flow diagrams, structure charts, and other types of system or process representations. An adaptable problem solver quickly identifying issues, gathering the team and working together to resolve the issues. A robust communicator, in oral and written formats, with proficiency to make technical information easily understandable in business presentations for leadership, clients and key stakeholders. Mentored and coached people in critical specialties such as SQL and soft skills. Volunteered in National Events such as the Tech-fleet Technical Symposium. Nurturer and continuous educator on current trends while assisting in the development of knowledge capital.</p>
+                    <div class="tab-titles">
+                        <p class="tab-links active-link" onclick="opentab('skills')">Skills</p>
+                        <p class="tab-links" onclick="opentab('education')" >Education</p>
+                        <p class="tab-links" onclick="opentab('experience')" >Experience</p>
+                    </div>
+                    <div class="tab-contents active-tab" id="skills">
+                        <ul>
+                            <li><span>Python</span><br>Building organized codes</li>
+                            <li><span>SQL</span><br>Managing Databases with ETL</li>
+                            <li><span>Analytics</span><br>Better Understanding Data</li>
+                        </ul>
+                    </div>
+                    <div class="tab-contents" id="education">
+                        <ul>
+                            <li><span>01/2023 - 12/2024</span><br>University of North Texas  Denton,TX,USA</li>
+                            <li><span>06/2017 - 07/2021</span><br>SRKR Engineering College  Bhimavarm,AP,INDIA</li>
+                        </ul>
+                    </div>
+                    <div class="tab-contents" id="experience">
+                        <ul>
+                            <li><span>2024</span><br>Internhsala internship Student partner</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+     </div>
+<!--------------------services---------------------------->
+     <div id="services">
+        <div class="container">
+            <h1 class="sub-title">My Services</h1>
+            <div class="services-list">
+                <div>
+                    <i class="fa-solid fa-code"></i>
+                    <h2>Web Development</h2>
+                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Porro iure aperiam nihil, distinctio atque fugit cumque consequuntur beatae esse, assumenda ipsa molestias expedita nobis totam recusandae! Ut voluptas voluptate velit.</p>
+                    <a href="#">Learn more</a>
+                </div>
+                <div>
+                    <i class="fa-solid fa-database"></i>
+                    <h2>Web Scraping</h2>
+                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aliquid, modi enim magni dolorem nihil quia numquam dolores laborum quod ea ex nesciunt, sit dolorum dolor beatae velit nemo? Quidem, minima.</p>
+                    <a href="#">Learn more</a>
+                </div>
+                <div>
+                    <i class="fa-brands fa-dev"></i>
+                    <h2>Backend Development</h2>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam ut accusantium praesentium, dolorum impedit qui, unde, tenetur voluptate quae veniam molestiae rem! Necessitatibus, quisquam officiis? Repellat quidem ea repellendus harum?</p>
+                    <a href="#">Learn more</a>
+                </div>
+            </div>
+        </div>
+     </div>
+     <!--------------------portfolio----------------->
+     <div id="portfolio">
+        <div class="container">
+            <h1 class="sub-title">My Work</h1>
+            <div class="work-list">
+                <div class="work">
+                    <img src="images/work2.jpg" >
+                    <div class="layer">
+                        <h3>Chatbot</h3>
+                        <p>This Bot is known as Rizvi bot ,its developed to help rizvians reach out for any admission related queries.</p>
+                        <a href="3"><i class="fa-solid fa-link"></i></a>
+                    </div>
+                </div>
+                <div class="work">
+                    <img src="images/work5.jpeg" >
+                    <div class="layer">
+                        <h3>Laptop landscape</h3>
+                        <p>Scrapping Amazon for laptops Data for data cleaning and processing and further performed analysis using tableau.</p>
+                        <a href="3"><i class="fa-solid fa-link"></i></a>
+                    </div>
+                </div>
+                <div class="work">
+                    <img src="images/work4.webp" >
+                    <div class="layer">
+                        <h3>Django User Login</h3>
+                        <p>Basic User login page for diffent types of users and registeration with signout,With basic details to be entered.</p>
+                        <a href="3"><i class="fa-solid fa-link"></i></a>
+                    </div>
+                </div>
+            </div>
+            <a href="#" class="btn">See more</a>
+        </div>
+     </div>
+<!-------------------------contact------------------------------->
+     <div id="contact">
+        <div class="container">
+            <div class="row">
+                <div class="contact-left">
+                       <h1 class="sub-title">Contact Me</h1>
+                       <p><i class="fa-solid fa-comments"></i> gudlatejamanikanta@gmail.com</p>
+                       <p><i class="fa-solid fa-phone"></i> +1 (940)-977-5285 </p>
+                       <div class="social-icons">
+                        <a href="https://www.linkedin.com/in/tejamanikanta-gudla-508a97138/"><i class="fa-brands fa-linkedin"></i></a>
+                        <a href="https://github.com/tejagudla1252"><i class="fa-brands fa-github"></i></a>
+                       </div>
+                       <a href="https://drive.google.com/file/d/1VWPIv4QHNo4Fspjw06E4037uYc4ojF78/view?usp=drive_link" download class="btn btn2"> View & Download Resume</a>
+                </div>
+                <div class="contact-right">
+                    <form >
+                        <input type="text" name="Name" placeholder="Your name" required>
+                        <input type="email" name="Email" placeholder="Your Email" required>
+                        <textarea name="message" rows="6" placeholder="Your Message"></textarea>
+                        <button type="submit" class="btn btn2">Submit</button>
+                    </form>
+                    <span id="msg"></span>
+                 </div>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; All rights Reserved by Tejamanikanta  </i></p>
+        </div>
+     </div>
+     <script>
+        var tablinks = document.getElementsByClassName('tab-links')
+        var tabcontents = document.getElementsByClassName('tab-contents')
+        function opentab(tabname){
+            for(tablink of tablinks){
+                tablink.classList.remove("active-link");
+            }
+            for(tabcontent of tabcontents){
+                tabcontent.classList.remove("active-tab");
+            }
+            event.currentTarget.classList.add("active-link");
+            document.getElementById(tabname).classList.add("active-tab");
+        }
+
+     </script>
+     <script>
+        var sidemenu = document.getElementById("sidemenu");
+        function openmenu(){
+            sidemenu.style.right = "0";
+        }
+        function closemenu(){
+            sidemenu.style.right = "-200px";
+        }
+     </script>
+</body>
+</html>
