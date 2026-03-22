@@ -284,15 +284,25 @@ function initNavbar() {
 }
 
 /* ----- ANIMATED COUNTERS ----- */
-function animateCounter(el, target, suffix = '') {
+function animateCounter(el, targetStr, suffix = '') {
   const duration = 1800;
   const start    = performance.now();
-  const update   = (now) => {
+  const target   = parseFloat(targetStr);
+  const isDecimal = targetStr.includes('.');
+  const decimalPlaces = isDecimal ? (targetStr.split('.')[1] || '').length : 0;
+  const isM = suffix.includes('M');
+
+  const update = (now) => {
     const pct   = Math.min((now - start) / duration, 1);
     const eased = 1 - Math.pow(1 - pct, 3);
-    const raw   = target.toString().replace(/[^0-9]/g, '');
-    const num   = Math.round(parseFloat(raw) * eased);
-    el.textContent = num + suffix;
+    const val   = target * eased;
+    if (isDecimal) {
+      el.textContent = val.toFixed(decimalPlaces);
+    } else if (isM) {
+      el.textContent = Math.round(val);
+    } else {
+      el.textContent = Math.round(val);
+    }
     if (pct < 1) requestAnimationFrame(update);
   };
   requestAnimationFrame(update);
@@ -310,12 +320,13 @@ function initScrollReveal() {
       const spanEl  = numEl.querySelector('span');
       const suffix  = spanEl ? spanEl.textContent : '';
       if (match) {
+        const rawNum = match[1]; // e.g. "3.91" or "10" or "40"
         numEl.textContent = '';
         if (spanEl) { numEl.appendChild(document.createTextNode('')); }
         const valEl = document.createElement('span');
         valEl.className = 'counter-num';
         numEl.appendChild(valEl);
-        animateCounter(valEl, parseInt(match[1]), text.includes('M') ? 'M' : '');
+        animateCounter(valEl, rawNum, suffix.includes('M') ? 'M' : '');
         const sfx = document.createElement('span');
         sfx.textContent = suffix;
         numEl.appendChild(sfx);
