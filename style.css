@@ -497,6 +497,7 @@ ul {
   align-items: center;
   justify-content: center;
   animation: fadeUp 0.8s ease 0.3s both;
+  margin: 0 auto;
 }
 
 /* Outer rotating gradient ring */
@@ -537,16 +538,22 @@ ul {
   box-shadow: 0 0 60px rgba(168, 85, 247, 0.35), 0 0 120px rgba(34, 211, 238, 0.15);
   position: relative;
   z-index: 1;
+  flex-shrink: 0;
 }
 
 .hero-photo {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center 10%;
+  object-position: center 45%;
   display: block;
   filter: brightness(1.03) contrast(1.02);
   image-rendering: high-quality;
+  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.hero-photo-frame:hover .hero-photo {
+  transform: scale(1.20);
 }
 
 .hero-photo-badge {
@@ -586,7 +593,7 @@ ul {
   font-size: clamp(2.8rem, 5vw, 5rem);
 }
 
-/* Mobile: stack vertically */
+/* Tablet: stack vertically */
 @media (max-width: 900px) {
   .hero-content {
     flex-direction: column;
@@ -607,13 +614,70 @@ ul {
   }
 
   .hero-photo-wrap {
-    width: 220px;
-    height: 220px;
+    width: 240px;
+    height: 240px;
   }
 
   .hero-photo-frame {
+    width: 220px;
+    height: 220px;
+  }
+}
+
+/* iPad/Medium tablets */
+@media (max-width: 768px) {
+  .hero-photo-wrap {
     width: 200px;
     height: 200px;
+  }
+
+  .hero-photo-frame {
+    width: 180px;
+    height: 180px;
+  }
+}
+
+/* Phones/Small devices */
+@media (max-width: 640px) {
+  .hero-photo-wrap {
+    width: 160px;
+    height: 160px;
+  }
+
+  .hero-photo-frame {
+    width: 145px;
+    height: 145px;
+    border-width: 2px;
+  }
+
+  .hero-photo-ring {
+    inset: -8px;
+  }
+
+  .hero-photo-ring2 {
+    inset: -16px;
+  }
+}
+
+/* Small phones (iPhone SE, etc) */
+@media (max-width: 480px) {
+  .hero-photo-wrap {
+    width: 140px;
+    height: 140px;
+  }
+
+  .hero-photo-frame {
+    width: 130px;
+    height: 130px;
+    border-width: 2px;
+  }
+
+  .hero-photo-ring {
+    inset: -6px;
+  }
+
+  .hero-photo-ring2 {
+    inset: -12px;
   }
 }
 
