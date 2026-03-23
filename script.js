@@ -416,6 +416,133 @@ function initCardTilt() {
   });
 }
 
+/* ----- PARALLAX SCROLL ----- */
+function initParallax() {
+  const heroContent = document.querySelector('.hero-content');
+  if (!heroContent) return;
+  window.addEventListener('scroll', () => {
+    const scrollY = window.scrollY;
+    if (scrollY < window.innerHeight * 1.5) {
+      heroContent.style.transform = `translateY(${scrollY * 0.5}px)`;
+    }
+  }, { passive: true });
+}
+
+/* ----- TYPING ANIMATION ----- */
+function initTypingAnimation() {
+  const summary = document.querySelector('.hero-summary');
+  if (!summary) return;
+  const fullText = summary.textContent;
+  let index = 0;
+  summary.textContent = '';
+  summary.style.minHeight = '60px';
+  
+  function typeChar() {
+    if (index < fullText.length) {
+      summary.textContent += fullText[index];
+      index++;
+      setTimeout(typeChar, 15);
+    }
+  }
+  
+  // Start after a brief delay
+  setTimeout(typeChar, 500);
+}
+
+/* ----- BACK-TO-TOP BUTTON ----- */
+function initBackToTop() {
+  const btn = document.createElement('button');
+  btn.innerHTML = '↑';
+  btn.id = 'backToTop';
+  btn.style.cssText = `
+    position:fixed; bottom:2rem; right:2rem; z-index:999;
+    width:48px; height:48px; border-radius:50%;
+    background: linear-gradient(135deg, #a855f7, #6366f1);
+    border:none; cursor:pointer; color:#fff; font-size:24px;
+    opacity:0; visibility:hidden; transition: all 0.3s ease;
+    box-shadow: 0 0 40px rgba(168, 85, 247, 0.3);
+  `;
+  document.body.appendChild(btn);
+  
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 400) {
+      btn.style.opacity = '1';
+      btn.style.visibility = 'visible';
+    } else {
+      btn.style.opacity = '0';
+      btn.style.visibility = 'hidden';
+    }
+  }, { passive: true });
+  
+  btn.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+  
+  btn.addEventListener('mouseover', () => {
+    btn.style.transform = 'scale(1.1)';
+  });
+  
+  btn.addEventListener('mouseleave', () => {
+    btn.style.transform = 'scale(1)';
+  });
+}
+
+/* ----- BUTTON RIPPLE EFFECT ----- */
+function initButtonRipple() {
+  document.querySelectorAll('.btn').forEach(btn => {
+    btn.addEventListener('click', function(e) {
+      const rect = this.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      
+      const ripple = document.createElement('span');
+      ripple.style.cssText = `
+        position:absolute; border-radius:50%;
+        background: rgba(255,255,255,0.6); pointer-events:none;
+        transform: scale(0);
+        animation: rippleEffect 0.6s ease-out;
+        left:${x}px; top:${y}px; width:20px; height:20px;
+        margin-left:-10px; margin-top:-10px;
+      `;
+      
+      if (!this.style.position || this.style.position === 'static') {
+        this.style.position = 'relative';
+      }
+      this.appendChild(ripple);
+      
+      setTimeout(() => ripple.remove(), 600);
+    });
+  });
+  
+  // Add ripple keyframes if not already in CSS
+  if (!document.querySelector('style[data-ripple]')) {
+    const style = document.createElement('style');
+    style.setAttribute('data-ripple', 'true');
+    style.textContent = `
+      @keyframes rippleEffect {
+        to {
+          transform: scale(4);
+          opacity: 0;
+        }
+      }
+    `;
+    document.head.appendChild(style);
+  }
+}
+
+/* ----- STAGGER ANIMATIONS ----- */
+function initStaggerAnimation() {
+  const observer = new MutationObserver(() => {
+    document.querySelectorAll('[data-stagger]').forEach((el, i) => {
+      if (!el.style.transitionDelay) {
+        el.style.transition = 'all 0.5s ease';
+        el.style.transitionDelay = `${i * 0.05}s`;
+      }
+    });
+  });
+  observer.observe(document.body, { childList: true, subtree: true });
+}
+
 /* ----- BOOT ----- */
 document.addEventListener('DOMContentLoaded', () => {
   initNavbar();
@@ -426,4 +553,9 @@ document.addEventListener('DOMContentLoaded', () => {
   initSmoothScroll();
   initCursorGlow();
   initCardTilt();
+  initParallax();
+  initTypingAnimation();
+  initBackToTop();
+  initButtonRipple();
+  initStaggerAnimation();
 });
