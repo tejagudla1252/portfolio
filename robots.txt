@@ -1,0 +1,12 @@
+User-agent: *
+Allow: /
+Allow: /welcome.html
+Allow: /index.html
+Disallow: /_backup/
+Disallow: /.git/
+Disallow: /.netlify/
+
+Sitemap: https://tejamanikanta.com/sitemap.xml
+
+# Crawl delay to be respectful
+Crawl-delay: 1
