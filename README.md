@@ -71,8 +71,7 @@ Looking to collaborate on ML/Data Science projects? Reach out via:
 - **Education** - Degrees and certifications
 - **Contact** - Quick connect channels
 
----
-
+-
 ## 🎯 About Me
 
 **Data Scientist & ML Engineer**
