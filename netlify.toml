@@ -9,6 +9,11 @@
     X-Content-Type-Options = "nosniff"
     Referrer-Policy = "strict-origin-when-cross-origin"
 
+[[headers]]
+  for = "*.xml"
+  [headers.values]
+    Content-Type = "application/xml; charset=utf-8"
+
 [[redirects]]
   from = "http://tejamanikanta.com/*"
   to   = "https://tejamanikanta.com/:splat"
